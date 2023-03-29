@@ -448,3 +448,138 @@ hr {
     opacity: 0.2;
   }
 }
+
+
+
+
+
+
+import './App.css';
+import React, { useState } from 'react';
+
+function App() {
+  const [selectedMenu, setSelectedMenu] = useState("about_me")
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        Resume
+      </header>
+      <div className="main">
+        <div className="sidebar">
+          <ul className="menu__list">
+            <li className="detail__tab" onClick={() => setSelectedMenu('about_me')}>About Me</li>
+            <li className="detail__tab" onClick={() => setSelectedMenu('education')}>Education</li>
+            <li className="detail__tab" onClick={() => setSelectedMenu('projects')}>Projects</li>
+            <li className="detail__tab" onClick={() => setSelectedMenu('training')}>Training</li>
+            <li className="detail__tab" onClick={() => setSelectedMenu('contact_me')}>Contact Me</li>
+          </ul>
+        </div>
+        <div className="detail__container">
+          {selectedMenu === "about_me" && (
+            <h3>
+              Hello Everyone, My name <span>Vipin Chaudhary</span>. I am from Mathura and I am very interested in react and its working principle. I have an upcoming Front End Developer.
+            </h3>
+          )}
+          {selectedMenu === "education" && (
+            <ul>
+                          <li>Bachelor of Technology (C.S.E) > 2019-2023</li>
+                          <li>Intermediate - 2019</li>
+                          <li>High School - 2017</li>
+                        </ul>
+          )}
+          {selectedMenu === "projects" && (
+            <ul>
+                          <li>Quiz Time - HTML, CSS, JS</li>
+                          <li>Chat Verse - React JS, Google Firebase</li>
+                        </ul>
+          )}
+          {selectedMenu === "training" && (
+            <ul>
+                          <li>Web Developer Intern - Era Interfaces</li>
+                          <li>Full Stack Developer Intern - Devslane</li>
+                        </ul>
+          )}
+          {selectedMenu === "contact_me" && (
+            <h3>
+              You can contact me through email: <a href="mailto:vpinchaudhary2001@gmail.com">vpinchaudhary2001@gmail.com</a>
+            </h3>
+          )}
+        </div>
+      </div>
+      <footer className="declaration">
+        I hereby declare that the information stated above is true to the best of my knowledge.
+      </footer>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+body {
+  padding: 1rem;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  border: 2px #000 solid;
+  padding: 1rem;
+}
+
+.App-header, .declaration {
+  border: 2px #000 solid;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.main {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.sidebar {
+  border: 2px #000 solid;
+  width: 20%;
+  margin-right: 1rem;
+}
+
+.menu_list, .detail_container ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.detail_tab, .detail_container ul li {
+  font-size: 1.25rem;
+  transition: all ease-in 150ms;
+  width: 100%;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.detail__container ul li {
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.detail__tab:hover, .selected {
+  background-color: #000;
+  color: white
+}
+
+.detail__container {
+  padding: 0 0.5rem;
+  border: 2px #000 solid;
+  width: 80%
+}
+
+.detail__container span {
+  color: #1a7ef7;
+}
